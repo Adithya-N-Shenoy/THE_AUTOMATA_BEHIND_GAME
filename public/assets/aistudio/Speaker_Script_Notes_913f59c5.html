@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Speaker Script — BOSS LEVEL: The Automata Behind Game AI</title>
+<style>
+  body { font-family:'Segoe UI',system-ui,sans-serif; background:#f4f6f8; color:#1c2430;
+          margin:0; padding:0; }
+  .band { background:#0A0E1A; color:#E8F1F2; padding:34px 40px; }
+  .band h1 { font-size:24px; letter-spacing:1px; margin:0 0 8px; color:#00FF9C; }
+  .band p { margin:4px 0; color:#B8C4CF; font-size:14px; }
+  .band b { color:#E8F1F2; }
+  .wrap { max-width:900px; margin:0 auto; padding:28px 24px 60px; }
+  h2 { font-size:15px; color:#0d7a4f; letter-spacing:1px; margin:34px 0 10px;
+        text-transform:uppercase; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; background:#fff;
+           border:1px solid #d8dfe6; }
+  th { background:#eef3ee; text-align:left; padding:8px 10px; border:1px solid #d8dfe6;
+        font-size:11.5px; letter-spacing:.5px; }
+  td { padding:7px 10px; border:1px solid #e2e8ee; vertical-align:middle; }
+  .mono { font-family:Consolas,'JetBrains Mono',monospace; }
+  .chip { display:inline-block; border:1px solid; border-radius:99px; padding:2px 10px;
+           font-size:11px; font-weight:600; white-space:nowrap; }
+  .win { color:#6b7785; font-size:11.5px; margin-left:6px; }
+  section { background:#fff; border:1px solid #d8dfe6; border-radius:10px;
+             padding:16px 20px; margin-top:14px; page-break-inside:avoid; }
+  .sec-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+               border-bottom:1px dashed #e2e8ee; padding-bottom:10px; margin-bottom:10px; }
+  .sec-head h2 { margin:0; color:#1c2430; font-size:14.5px; letter-spacing:0;
+                  text-transform:none; flex:1; min-width:200px; }
+  .num { color:#0d7a4f; font-weight:700; font-size:12px; }
+  .script { font-size:14.5px; line-height:1.8; margin:0; }
+  ul.check { background:#fff; border:1px solid #d8dfe6; border-radius:10px; padding:16px 22px; }
+  ul.check li { margin:7px 0; font-size:14px; }
+  .note { background:#fff8e6; border:1px solid #ecd98a; border-radius:8px; padding:12px 16px;
+           font-size:13px; margin-top:16px; }
+  @media print { body { background:#fff; } .band { -webkit-print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+<div class="band">
+  <h1>▶ BOSS LEVEL — SPEAKER SCRIPT &amp; RUN SHEET</h1>
+  <p><b>The Automata Behind Game AI</b> · CS3703 Theory of Computation · CIE-3 Video Presentation · 15 slides</p>
+  <p>Team (fill before recording): MEMBER 1 <b>[NAME · USN]</b> · MEMBER 2 <b>[NAME · USN]</b> ·
+     MEMBER 3 <b>[NAME · USN]</b> · MEMBER 4 <b>[NAME · USN]</b></p>
+  <p>Total script ≈ <b>1587 words ≈ 10.7 min at 148 wpm</b> (plan: 10:15 — safely inside the 8-12 min window)</p>
+</div>
+<div class="wrap">
+  <h2>Run sheet at a glance</h2>
+  <table>
+    <tr><th>#</th><th>Slide</th><th>Speaker</th><th>Window</th><th>Size</th></tr>
+    <tr><td class="mono">01</td><td>BOSS LEVEL — The Automata Behind Game AI</td><td><span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1</span></td><td class="mono">0:00-0:20</td><td class="mono">57w</td></tr><tr><td class="mono">02</td><td>Players Ready — Team Profile</td><td><span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1</span></td><td class="mono">0:20-0:50</td><td class="mono">80w</td></tr><tr><td class="mono">03</td><td>The Mission — Build a Boss AI in 3 Levels</td><td><span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1</span></td><td class="mono">0:50-1:25</td><td class="mono">99w</td></tr><tr><td class="mono">04</td><td>LEVEL 1 — Patrol Protocol</td><td><span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1 · handover to P2</span></td><td class="mono">1:25-2:00</td><td class="mono">82w</td></tr><tr><td class="mono">05</td><td>The DFA — One Exact Move Per Input</td><td><span class="chip" style="background:#38BDF818;color:#38BDF8;border-color:#38BDF855">PLAYER 2</span></td><td class="mono">2:00-3:00</td><td class="mono">135w</td></tr><tr><td class="mono">06</td><td>Transition Table &amp; Deterministic Trace</td><td><span class="chip" style="background:#38BDF818;color:#38BDF8;border-color:#38BDF855">PLAYER 2 · handover to P3</span></td><td class="mono">3:00-4:00</td><td class="mono">138w</td></tr><tr><td class="mono">07</td><td>LEVEL 2 — Boss Brain</td><td><span class="chip" style="background:#FF2E8818;color:#FF2E88;border-color:#FF2E8855">PLAYER 3</span></td><td class="mono">4:00-4:35</td><td class="mono">83w</td></tr><tr><td class="mono">08</td><td>The NFA — Many Moves, One Energy Bar</td><td><span class="chip" style="background:#FF2E8818;color:#FF2E88;border-color:#FF2E8855">PLAYER 3</span></td><td class="mono">4:35-5:40</td><td class="mono">132w</td></tr><tr><td class="mono">09</td><td>Patch Notes — Minimization + Moore &amp; Mealy</td><td><span class="chip" style="background:#FF2E8818;color:#FF2E88;border-color:#FF2E8855">PLAYER 3 · handover to P4</span></td><td class="mono">5:40-6:25</td><td class="mono">119w</td></tr><tr><td class="mono">10</td><td>LEVEL 3 — Combo Mode</td><td><span class="chip" style="background:#F5A62318;color:#F5A623;border-color:#F5A62355">PLAYER 4</span></td><td class="mono">6:25-6:55</td><td class="mono">69w</td></tr><tr><td class="mono">11</td><td>Regular Expressions — The Combo Language</td><td><span class="chip" style="background:#F5A62318;color:#F5A623;border-color:#F5A62355">PLAYER 4</span></td><td class="mono">6:55-7:55</td><td class="mono">148w</td></tr><tr><td class="mono">12</td><td>The Wall — Why Finite Memory Is Not Enough</td><td><span class="chip" style="background:#F5A62318;color:#F5A623;border-color:#F5A62355">PLAYER 4</span></td><td class="mono">7:55-8:40</td><td class="mono">122w</td></tr><tr><td class="mono">13</td><td>It&#x27;s Everywhere — Real Game Engines</td><td><span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1 returns</span></td><td class="mono">8:40-9:25</td><td class="mono">128w</td></tr><tr><td class="mono">14</td><td>Level Complete — What We Proved</td><td><span class="chip" style="background:#38BDF818;color:#38BDF8;border-color:#38BDF855">PLAYER 2</span></td><td class="mono">9:25-9:50</td><td class="mono">101w</td></tr><tr><td class="mono">15</td><td>Game Over? No — Game On.</td><td><span class="chip" style="background:#B98CFF18;color:#B98CFF;border-color:#B98CFF55">ALL FOUR PLAYERS</span></td><td class="mono">9:50-10:15</td><td class="mono">94w</td></tr>
+  </table>
+  <div class="note"><b>Pacing rule:</b> each window is a budget, not a target. If you finish early,
+  hold the slide and let the visuals breathe — do not rush into the next player's segment.
+  Handover lines are written into the scripts.</div>
+  <h2>Full script</h2>
+  
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 01</span>
+    <h2>BOSS LEVEL — The Automata Behind Game AI</h2>
+    <span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1</span> <span class="win mono">0:00-0:20</span>
+  </div>
+  <p class="script">Hey everyone, welcome! I&#x27;m Player 1, and this is BOSS LEVEL — The Automata Behind Game AI, our CS3703 CIE-3 video presentation. The one-line premise: every game you play secretly runs on machines we can prove things about. Our full team details and USNs appear in the video intro and in the file information. Let&#x27;s press start.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 02</span>
+    <h2>Players Ready — Team Profile</h2>
+    <span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1</span> <span class="win mono">0:20-0:50</span>
+  </div>
+  <p class="script">Quick squad roll-call. Player 1 — me, the host: I open the mission and land the real-world wrap and game-over sign-off. Player 2 is our DFA engineer — formal definition, transition table, final recap. Player 3 is the boss brain — nondeterminism, subset construction, Moore and Mealy. Player 4 hunts patterns — regular expressions and the pumping-lemma proof. All four of us present our own segments on camera, and every name plus USN is also written into the file information.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 03</span>
+    <h2>The Mission — Build a Boss AI in 3 Levels</h2>
+    <span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1</span> <span class="win mono">0:50-1:25</span>
+  </div>
+  <p class="script">Here&#x27;s the mission. Every game you love runs on machines you can prove things about — so today we design one boss enemy, level by level, and back every design choice with Theory of Computation. Level 1, Patrol Protocol — alphabet, strings and the DFA — that&#x27;s Player 2 on core models. Level 2, Boss Brain — the NFA and output machines — belongs to Player 3. Level 3, Combo Mode — regular expressions and the pumping lemma — is Player 4&#x27;s pattern hunt. And we promise: at least one worked example and one full proof during the run.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 04</span>
+    <h2>LEVEL 1 — Patrol Protocol</h2>
+    <span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1 · handover to P2</span> <span class="win mono">1:25-2:00</span>
+  </div>
+  <p class="script">Level 1 begins. Look at any game character — it is secretly a machine, and we can prove it. The buttons on your controller? That&#x27;s the alphabet Sigma. A sequence of moves — left, right, jump, dash? That&#x27;s a string over Sigma. And the set of legal behaviours the character can perform is a language — a subset of Sigma star. Three everyday game ideas become three formal objects. Level 1 execution is yours now, Player 2 — show us the machine.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 05</span>
+    <h2>The DFA — One Exact Move Per Input</h2>
+    <span class="chip" style="background:#38BDF818;color:#38BDF8;border-color:#38BDF855">PLAYER 2</span> <span class="win mono">2:00-3:00</span>
+  </div>
+  <p class="script">Thanks, Player 1 — Level 1 is mine. Formally, a deterministic finite automaton is a five-tuple: M equals (Q, Sigma, delta, q-zero, F). Q is the states — what our enemy is doing: S0 idle, S1 tap-one, S2 dash. Sigma is the alphabet — controller events per frame: t is a tap, o is any other input. Delta is the rulebook: a state plus a symbol gives exactly one next state — never a choice, never a maybe. That is determinism: one memory lookup per frame, which is why engines love DFAs. q-zero is the spawn state, always S0, and F is the accepting set — just S2, the frame the dash fires. Acceptance means the input string ends in t-t — the double-tap detector. Next slide: the full transition table and a live trace.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 06</span>
+    <h2>Transition Table &amp; Deterministic Trace</h2>
+    <span class="chip" style="background:#38BDF818;color:#38BDF8;border-color:#38BDF855">PLAYER 2 · handover to P3</span> <span class="win mono">3:00-4:00</span>
+  </div>
+  <p class="script">Let&#x27;s read the rulebook as a table. Three states, two symbols — and notice every cell holds exactly one move. Now watch the engine trace the input t-o-t-t. First chip: t takes S0 to S1 — one tap logged. Second chip: o is any other input, and S1 falls straight back to S0 — wrong rhythm, the engine resets. Third chip: t again, S0 to S1. Fourth chip: t — S1 jumps to S2, so the dash fires. Accepted! Now the contrast: t-o ends in S0 with no dash — rejected. So the language this DFA accepts is exactly the set of strings ending in t-t: the double-tap detector. Same state plus same symbol always gives the same next state — determinism, one memory lookup per frame. That closes Level 1. Player 3, the boss brain is yours.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 07</span>
+    <h2>LEVEL 2 — Boss Brain</h2>
+    <span class="chip" style="background:#FF2E8818;color:#FF2E88;border-color:#FF2E8855">PLAYER 3</span> <span class="win mono">4:00-4:35</span>
+  </div>
+  <p class="script">Thanks, Player 2 — I&#x27;ve got the boss brain. Strict determinism is a bad fit when the enemy faces uncertain situations: the same input may deserve different reactions depending on context. So real bosses keep their options open — that&#x27;s nondeterminism, and Level 2 is where we build it. We&#x27;ll meet the NFA, epsilon-moves that jump without consuming input, the subset construction that proves an NFA equals a DFA, then minimization and Moore-Mealy output machines. First up: a cheat-code detector — watch this.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 08</span>
+    <h2>The NFA — Many Moves, One Energy Bar</h2>
+    <span class="chip" style="background:#FF2E8818;color:#FF2E88;border-color:#FF2E8855">PLAYER 3</span> <span class="win mono">4:35-5:40</span>
+  </div>
+  <p class="script">Here&#x27;s the boss: the Konami code — up, up, down, down, left, right, left, right, B, A — can appear anywhere inside a long input stream, so the engine keeps a scanner state s that eats any symbol and stays in s. On the first up-arrow it also branches into c1 — two live choices at once. That&#x27;s nondeterminism: the machine explores every branch in parallel. We also get epsilon-moves: state switches that consume no input at all. Now the punchline — subset construction. A DFA simulates the NFA by tracking the SET of states it could be in, like fog-of-war tracking. Worst case that set explodes to two-to-the-n states, but the accepted language is identical. So NFAs and DFAs accept exactly the same languages — nondeterminism buys convenience, never extra power.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 09</span>
+    <h2>Patch Notes — Minimization + Moore &amp; Mealy</h2>
+    <span class="chip" style="background:#FF2E8818;color:#FF2E88;border-color:#FF2E8855">PLAYER 3 · handover to P4</span> <span class="win mono">5:40-6:25</span>
+  </div>
+  <p class="script">Before we ship the boss, two patch notes. First, minimization: two states that answer every possible future input identically ARE the same guard — the table-filling algorithm merges them. Fewer states mean cheaper, faster AI, and Myhill-Nerode says a language is regular exactly when it has finitely many of those behaviour classes. Five states become three, zero gameplay lost. Second, machines with output. Moore paints output on the state — the HP bar&#x27;s green, amber or red depends only on which state you&#x27;re in. Mealy paints it on the arrow — the hit-spark fires exactly on a transition, state plus input together. Any Moore machine converts to a Mealy machine and back. Player 4 — combo mode is yours.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 10</span>
+    <h2>LEVEL 3 — Combo Mode</h2>
+    <span class="chip" style="background:#F5A62318;color:#F5A623;border-color:#F5A62355">PLAYER 4</span> <span class="win mono">6:25-6:55</span>
+  </div>
+  <p class="script">Player 4 here — combo mode. Forget states for a second: a fighting-game special like down, down-forward, forward plus punch is a pattern written over the controller alphabet. Level 3 is about recognizing patterns. We&#x27;ll build regular expressions, convert them both ways into finite automata, then hit the wall — the pumping lemma, the proof that finite memory ends — and close inside real engines. Let&#x27;s run the combo.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 11</span>
+    <h2>Regular Expressions — The Combo Language</h2>
+    <span class="chip" style="background:#F5A62318;color:#F5A623;border-color:#F5A62355">PLAYER 4</span> <span class="win mono">6:55-7:55</span>
+  </div>
+  <p class="script">[PLAYER 4 · 6:55–7:55] Level three continues — we stop listing states and start writing patterns. Regular expressions are the combo language, built from three operators. Union means &quot;or&quot;: a union b accepts a or b. Concatenation means &quot;then&quot;: a b fires a immediately followed by b. Kleene star means &quot;repeat&quot;: a-star is zero or more a&#x27;s — and binding runs star, then concatenation, then union. Two game examples. Input buffering: W-star A — any number of walk frames, then attack fires; one expression, infinite combos. Name check: a letter followed by letters, digits or underscores — the chat engine validates every new player name with one regex. Every regex compiles into a machine: Thompson construction builds an NFA with epsilon-moves, subset construction converts it to a DFA, and minimization delivers the optimal DFA. Going backwards, state elimination with Arden&#x27;s theorem turns the automaton back into a regex.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 12</span>
+    <h2>The Wall — Why Finite Memory Is Not Enough</h2>
+    <span class="chip" style="background:#F5A62318;color:#F5A623;border-color:#F5A62355">PLAYER 4</span> <span class="win mono">7:55-8:40</span>
+  </div>
+  <p class="script">[PLAYER 4 · 7:55–8:40] Every power-up has a wall — this is ours. The boss that counts demands n jump-charges and exactly n releases: the language a-n-b-n. The pumping lemma in plain words: if a language is regular, every long-enough string splits into x, y and z — y is non-empty, x-y stays inside the first p symbols, and pumping y any number of times keeps the string legal. Demolition: choose a-p b-p. Since x-y fits within the first p symbols, y can only hold a&#x27;s. Pump twice — more a&#x27;s than b&#x27;s, so the pumped string is rejected. Contradiction: not regular. No DFA or regex can verify it. Counting needs memory that grows — a stack. That&#x27;s Module four: pushdown automata.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 13</span>
+    <h2>It&#x27;s Everywhere — Real Game Engines</h2>
+    <span class="chip" style="background:#00FF9C18;color:#00FF9C;border-color:#00FF9C55">PLAYER 1 returns</span> <span class="win mono">8:40-9:25</span>
+  </div>
+  <p class="script">[PLAYER 1 · 8:40–9:25] Player One back on the mic — and the achievement list is glowing. Pac-Man&#x27;s ghosts have run scatter, chase and frightened as a classic finite state machine since 1980. Unity and Unreal animators literally are state machines — the states, transitions and conditions you drag on screen are the delta function. Chat and cheat filters scan text and inputs with regex pattern matching — the same finite-automaton power, live in multiplayer. And fighting-game combos sit in an input buffer until a DFA-like recognizer fires the special move on the exact frame. But here is where it ends: balanced dialogue trees, undo systems, inventory counts — finite automata cannot count. For that, games hand over to stacks and parsers. Modules three and four are waiting.</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 14</span>
+    <h2>Level Complete — What We Proved</h2>
+    <span class="chip" style="background:#38BDF818;color:#38BDF8;border-color:#38BDF855">PLAYER 2</span> <span class="win mono">9:25-9:50</span>
+  </div>
+  <p class="script">[PLAYER 2 · 9:25–9:50] Results screen time. Controller buttons were our alphabet; combo sequences were strings; the full set of legal combos, a language. The double-tap dash was a complete DFA. The cautious boss was an NFA, fog-of-war tracking was the subset construction, twin guards merged via minimization and Myhill-Nerode, HP bars and hit-sparks gave us Moore and Mealy, cheat detection was regular expressions, and the counting boss fell to the pumping lemma. Four achievements unlocked: correct with examples, deep on equivalence and proof, ten minutes on the dot, and creative in the game-design narrative. Everyone on camera — sign-off time!</p>
+</section>
+<section>
+  <div class="sec-head">
+    <span class="num mono">SLIDE 15</span>
+    <h2>Game Over? No — Game On.</h2>
+    <span class="chip" style="background:#B98CFF18;color:#B98CFF;border-color:#B98CFF55">ALL FOUR PLAYERS</span> <span class="win mono">9:50-10:15</span>
+  </div>
+  <p class="script">[ALL FOUR PLAYERS · 9:50–10:15] Final screen — all four players on camera. Player Four: from combo patterns to the pumping-lemma wall, Level three is complete. Player Three: the boss kept its options open, and the subset construction proved it deterministic anyway. Player Two: one dash, five states, zero doubt — the DFA checked out. Player One: every jump, patrol and combo you have ever played ran on machines we can prove things about. Thank you for watching — our names and USNs are stated on camera and in the file information. Game on!</p>
+</section>
+  <h2>Recording checklist (from the assignment brief)</h2>
+  <ul class="check">
+    <li>☐ Every member speaks on camera and presents their own role.</li>
+    <li>☐ Team details + USNs stated in the video intro AND written in the file information / description.</li>
+    <li>☐ Duration 8-12 minutes — rehearse once with a timer before the final take.</li>
+    <li>☐ Audio: quiet room, phone mic close (20-30 cm), no echo; test 10 seconds first.</li>
+    <li>☐ Visuals: record screen at 1080p; keep the presenter HTML fullscreen (<b>F</b>) or windowed cleanly.</li>
+    <li>☐ Upload the video file or a working link (e.g. Zoom recording) on Google Classroom.</li>
+    <li>☐ Deadline: <b>8 November 2026, 5:00 PM</b> — late submissions not accepted.</li>
+  </ul>
+</div>
+</body>
+</html>
